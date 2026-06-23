@@ -1,0 +1,4 @@
+yt-dlp>=2023.3.3
+opencv-python>=4.7.0.72
+numpy>=1.24.2
+python-docx>=0.8.11
