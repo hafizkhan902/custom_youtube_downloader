@@ -69,8 +69,8 @@ The script dynamically configures where your downloads, `registry.json`, and Wor
 
 1. Clone the repository:
    ```bash
-   git clone <https://github.com/hafizkhan902/custom_youtube_downloader.git>
-   cd <custom_youtube_downloader>
+   git clone https://github.com/hafizkhan902/custom_youtube_downloader.git
+   cd custom_youtube_downloader
    ```
 
 2. Install python dependencies:
