@@ -38,8 +38,15 @@ The script dynamically configures where your downloads, `registry.json`, and Wor
 
 1. **Python 3.8+**
 2. **FFmpeg:** Required by `yt-dlp` to merge and trim video/audio streams.
-   * **macOS:** Install via Homebrew:
+   * **macOS:** Install via [Homebrew](https://brew.sh):
      ```bash
+     # If you already have Homebrew installed:
+     brew install ffmpeg
+
+     # If you don't have Homebrew installed, run this first to install Homebrew:
+     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+     # Then install FFmpeg:
      brew install ffmpeg
      ```
    * **Linux (Ubuntu/Debian):**
