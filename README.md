@@ -53,10 +53,16 @@ The script dynamically configures where your downloads, `registry.json`, and Wor
      ```bash
      sudo apt update && sudo apt install ffmpeg
      ```
-   * **Windows:**
-     ```powershell
-     winget install Gyan.FFmpeg
-     ```
+    * **Windows:**
+      1. Open PowerShell with **Administrator** privileges.
+      2. Execute the following command to install FFmpeg via the Windows Package Manager (winget):
+         ```powershell
+         winget install Gyan.FFmpeg
+         ```
+      3. Restart your PowerShell terminal and verify the installation:
+         ```powershell
+         ffmpeg -version
+         ```
 
 ## Installation
 
