@@ -54,13 +54,29 @@ The script dynamically configures where your downloads, `registry.json`, and Wor
      sudo apt update && sudo apt install ffmpeg
      ```
    * **Windows:**
+<<<<<<< HEAD
  ## Installing FFmpeg on Windows via PowerShell
+=======
+     Open PowerShell and run the following recommended one-liner to install FFmpeg via Windows Package Manager:
+     ```powershell
+     winget install Gyan.FFmpeg
+     ```
+     *Alternatively, if winget is not configured, run the following commands to download manually via curl:*
+     ```powershell
+     # Download the latest FFmpeg release essentials build
+     curl -L -o ffmpeg.zip https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip
+>>>>>>> dd859ea (win)
 
 Follow these steps to automatically download, extract, and configure FFmpeg on your Windows system using PowerShell.
 
+<<<<<<< HEAD
 ### ⚠️ Prerequisites
 * You **must** run PowerShell as an **Administrator** because the script modifies files directly on the `C:\` drive.
 * After running the script, you will need to restart your terminal or command prompt for the environment changes to take effect.
+=======
+     # Rename the folder for simpler PATH referencing
+     Get-ChildItem -Path C:\ -Filter "ffmpeg-*-essentials_build" | Rename-Item -NewName "ffmpeg"
+>>>>>>> dd859ea (win)
 
 ### Installation Script
 
