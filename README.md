@@ -67,28 +67,7 @@ Follow these steps to automatically download, extract, and configure FFmpeg on y
 Copy and paste the entire block below into your Administrator PowerShell window:
 
 ```powershell
-# 1. Download the latest FFmpeg release essentials build
-curl -L -o ffmpeg.zip [https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip](https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip)
-
-# 2. Extract it to a temporary folder
-Expand-Archive ffmpeg.zip -DestinationPath C:\ffmpeg_temp -Force
-
-# 3. Move the actual inner contents to C:\ffmpeg and clean up
-Move-Item C:\ffmpeg_temp\ffmpeg-*-essentials_build C:\ffmpeg -Force
-Remove-Item C:\ffmpeg_temp -Recurse -Force
-Remove-Item ffmpeg.zip -Force
-
-# 4. Add FFmpeg to User PATH safely (prevents duplicate entries)
-$currentPath = [System.Environment]::GetEnvironmentVariable("PATH", "User")
-if ($currentPath -notlike "*C:\ffmpeg\bin*") {
-    [System.Environment]::SetEnvironmentVariable("PATH", $currentPath + ";C:\ffmpeg\bin", "User")
-    Write-Host "FFmpeg added to PATH successfully!" -ForegroundColor Green
-} else {
-    Write-Host "FFmpeg is already in your PATH." -ForegroundColor Yellow
-}
-     ```
-     *(Note: Restart your PowerShell or Command Prompt terminal after running these commands to load the new PATH variable).*
-
+winget install Gyan.FFmpeg
 ---
 ```
 
