@@ -46,7 +46,22 @@ The script dynamically configures where your downloads, `registry.json`, and Wor
      ```bash
      sudo apt update && sudo apt install ffmpeg
      ```
-   * **Windows:** Install via Chocolatey or download from the official site and add it to your System PATH.
+   * **Windows:**
+     Open PowerShell as an Administrator and run the following commands to automatically download, extract, and register FFmpeg in your PATH environment variable:
+     ```powershell
+     # Download the latest FFmpeg release essentials build
+     curl -L -o ffmpeg.zip https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip
+
+     # Extract it to your C Drive
+     Expand-Archive ffmpeg.zip -DestinationPath C:\
+
+     # Rename the extracted folder for simpler PATH referencing
+     Get-ChildItem -Path C:\ -Filter "ffmpeg-*-essentials_build" | Rename-Item -NewName "ffmpeg"
+
+     # Add FFmpeg bin directory to your User PATH
+     [System.Environment]::SetEnvironmentVariable("PATH", [System.Environment]::GetEnvironmentVariable("PATH", "User") + ";C:\ffmpeg\bin", "User")
+     ```
+     *(Note: Restart your PowerShell or Command Prompt terminal after running these commands to load the new PATH variable).*
 
 ---
 
