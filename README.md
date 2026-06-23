@@ -90,6 +90,7 @@ if ($currentPath -notlike "*C:\ffmpeg\bin*") {
      *(Note: Restart your PowerShell or Command Prompt terminal after running these commands to load the new PATH variable).*
 
 ---
+```
 
 ## Installation
 
@@ -97,7 +98,7 @@ if ($currentPath -notlike "*C:\ffmpeg\bin*") {
    ```bash
    git clone https://github.com/hafizkhan902/custom_youtube_downloader.git
    cd custom_youtube_downloader
-   ```
+   
 
 2. Install python dependencies:
    ```bash
