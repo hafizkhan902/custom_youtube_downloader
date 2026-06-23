@@ -56,17 +56,25 @@ The script dynamically configures where your downloads, `registry.json`, and Wor
    * **Windows:**
      Open PowerShell as an Administrator and run the following commands to automatically download, extract, and register FFmpeg in your PATH environment variable:
      ```powershell
-     # Download the latest FFmpeg release essentials build
-     curl -L -o ffmpeg.zip https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip
+     # 1. Download the latest FFmpeg release essentials build
+curl -L -o ffmpeg.zip https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip
 
-     # Extract it to your C Drive
-     Expand-Archive ffmpeg.zip -DestinationPath C:\
+# 2. Extract it to a temporary folder
+Expand-Archive ffmpeg.zip -DestinationPath C:\ffmpeg_temp -Force
 
-     # Rename the extracted folder for simpler PATH referencing
-     Get-ChildItem -Path C:\ -Filter "ffmpeg-*-essentials_build" | Rename-Item -NewName "ffmpeg"
+# 3. Move the actual inner contents to C:\ffmpeg and clean up
+Move-Item C:\ffmpeg_temp\ffmpeg-*-essentials_build C:\ffmpeg -Force
+Remove-Item C:\ffmpeg_temp -Recurse -Force
+Remove-Item ffmpeg.zip -Force
 
-     # Add FFmpeg bin directory to your User PATH
-     [System.Environment]::SetEnvironmentVariable("PATH", [System.Environment]::GetEnvironmentVariable("PATH", "User") + ";C:\ffmpeg\bin", "User")
+# 4. Add FFmpeg to User PATH safely (prevents duplicate entries)
+$currentPath = [System.Environment]::GetEnvironmentVariable("PATH", "User")
+if ($currentPath -notlike "*C:\ffmpeg\bin*") {
+    [System.Environment]::SetEnvironmentVariable("PATH", $currentPath + ";C:\ffmpeg\bin", "User")
+    Write-Host "FFmpeg added to PATH successfully!" -ForegroundColor Green
+} else {
+    Write-Host "FFmpeg is already in your PATH." -ForegroundColor Yellow
+}
      ```
      *(Note: Restart your PowerShell or Command Prompt terminal after running these commands to load the new PATH variable).*
 
