@@ -54,10 +54,21 @@ The script dynamically configures where your downloads, `registry.json`, and Wor
      sudo apt update && sudo apt install ffmpeg
      ```
    * **Windows:**
-     Open PowerShell as an Administrator and run the following commands to automatically download, extract, and register FFmpeg in your PATH environment variable:
-     ```powershell
-     # 1. Download the latest FFmpeg release essentials build
-curl -L -o ffmpeg.zip https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip
+ ## Installing FFmpeg on Windows via PowerShell
+
+Follow these steps to automatically download, extract, and configure FFmpeg on your Windows system using PowerShell.
+
+### ⚠️ Prerequisites
+* You **must** run PowerShell as an **Administrator** because the script modifies files directly on the `C:\` drive.
+* After running the script, you will need to restart your terminal or command prompt for the environment changes to take effect.
+
+### Installation Script
+
+Copy and paste the entire block below into your Administrator PowerShell window:
+
+```powershell
+# 1. Download the latest FFmpeg release essentials build
+curl -L -o ffmpeg.zip [https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip](https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip)
 
 # 2. Extract it to a temporary folder
 Expand-Archive ffmpeg.zip -DestinationPath C:\ffmpeg_temp -Force
